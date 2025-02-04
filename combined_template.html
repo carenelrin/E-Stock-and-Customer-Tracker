@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimized Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: #ffffff; /* White text color for readability */
+            overflow: auto; /* Enables scrolling */
+        }
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+        }
+        .content {
+            margin-left: 280px;
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+        .form-container {
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            width:100%;
+            max-width: 1200px;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #fff;
+            
+        }
+        .section {
+            margin-bottom: 30px;
+            background: rgba(250, 247, 247, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        h2 {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 5px;
+            color: #f4f0f0;
+        }
+        .form-group {
+            display: grid;
+            column-gap: 50px;
+            row-gap: 50px;
+            gap: 15px;
+            margin-bottom: 15px;
+            padding: 1px;
+        }
+        .form-group label {
+            font-size: 1.0em;
+            
+            margin-bottom: 5px;
+            color: #ffffffd1;
+        }
+        input, select, textarea {
+            width: 500px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            
+        }
+        button {
+            background-color: #488a94;
+            color: #fff;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            font-size: 16px;
+            
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% include 'structure/nav.html' %}
+    {% include 'structure/navigation.html' %}
+
+    <video id="background-video" autoplay loop muted>
+        <source src="{% static 'videos/background.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="content">
+        <div class="form-container">
+            <h1 style="color: #fff;">Combined Form</h1>
+            <form method="post">
+                {% csrf_token %}
+                
+                <!-- Clients Section -->
+                <div class="section">
+                    <h2>Clients</h2>
+                    <div class="form-group">
+                        {{ form.client_id.label_tag }} {{ form.client_id }}
+                    </div>
+                        <div class="form-group">
+                        {{ form.first_name.label_tag }} {{ form.first_name }}
+                        {{ form.last_name.label_tag }} {{ form.last_name }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.phone_no.label_tag }} {{ form.phone_no }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.email_id.label_tag }} {{ form.email_id }}
+                        {{ form.address.label_tag }} {{ form.address }}
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div class="section">
+                    <h2>Products</h2>
+                    <div class="form-group">
+                        {{ form.job_id.label_tag }} {{ form.job_id }}
+                        {{ form.prod_name.label_tag }} {{ form.prod_name }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.category.label_tag }} {{ form.category }}
+                        {{ form.brand.label_tag }} {{ form.brand }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.model.label_tag }} {{ form.model }}
+                        {{ form.description.label_tag }} {{ form.description }}
+                    </div>
+                </div>
+
+                <!-- Services Section -->
+                <div class="section">
+                    <h2>Services</h2>
+                    <div class="form-group">
+                        {{ form.service_id.label_tag }} {{ form.service_id }}
+                        {{ form.priority.label_tag }} {{ form.priority }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.status.label_tag }} {{ form.status }}
+                        {{ form.due_date.label_tag }} {{ form.due_date }}
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Form</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            color: #ffffff; /* White text color for readability */
+            overflow: auto; /* Enables scrolling */
+        }
+        #background-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover; /* Ensure the video covers the entire background */
+        }
+        .content {
+            margin-left: 280px; /* Adjust according to the sidebar width */
+            padding: 50px;
+            background-color: rgba(0, 0, 0, 0.7); /* Dark overlay for readability */
+            min-height: 100vh;
+            position: relative;
+            z-index: 1; /* Ensure content is above the background video */
+        }
+        .form-container {
+            background-color: #333; /* Dark background for container */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+        h1, h2 {
+            color: #ffffff !important; /* White color for headings */
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h2 {
+            border-bottom: 2px solid #ffffff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #ffffff; /* White color for labels */
+        }
+        input, select, textarea {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #488a94;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% include 'structure/nav.html' %}
+    {% include 'structure/navigation.html' %}
+
+    <video id="background-video" autoplay loop muted>
+        <source src="{% static 'videos/background.mp4' %}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="content">
+        <div class="form-container">
+            <h1>Combined Form</h1>
+            <form method="post">
+                {% csrf_token %}
+                <-- Clients Section 
+                <div class="mb-4">
+                    <h2>Clients</h2>
+                    {{ form.client_id.label_tag }} {{ form.client_id }}
+                    {{ form.first_name.label_tag }} {{ form.first_name }}
+                    {{ form.last_name.label_tag }} {{ form.last_name }}
+                    {{ form.phone_no.label_tag }} {{ form.phone_no }}
+                    {{ form.email_id.label_tag }} {{ form.email_id }}
+                    {{ form.address.label_tag }} {{ form.address }}
+                </div>
+
+                <-- Products Section --
+                <div class="mb-4">
+                    <h2>Products</h2>
+                    {{ form.job_id.label_tag }} {{ form.job_id }}
+                    {{ form.prod_name.label_tag }} {{ form.prod_name }}
+                    {{ form.category.label_tag }} {{ form.category }}
+                    {{ form.brand.label_tag }} {{ form.brand }}
+                    {{ form.model.label_tag }} {{ form.model }}
+                    {{ form.description.label_tag }} {{ form.description }}
+                </div>
+
+                <-- Services Section --
+                <div class="mb-4">
+                    <h2>Services</h2>
+                    {{ form.service_id.label_tag }} {{ form.service_id }}
+                    {{ form.priority.label_tag }} {{ form.priority }}
+                    {{ form.status.label_tag }} {{ form.status }}
+                    {{ form.due_date.label_tag }} {{ form.due_date }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html> ------>
