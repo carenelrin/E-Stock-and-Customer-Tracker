@@ -78,6 +78,3 @@ project/
 * Analytics dashboard for service trends
 
 ---
-
-Feel free to modify this README to match your repo.
-Let me know if you want badges, screenshots, or a better description! 😄
